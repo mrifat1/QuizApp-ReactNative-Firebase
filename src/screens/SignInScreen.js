@@ -51,7 +51,7 @@ const SignInScreen = () => {
             placeholderText="Enter Your Password"
             onChangeText={value => setPassword(value)}
             value={password}
-            keyboardType={'email-address'}
+            secureTextEntry={true}
          />
          {/* Submit Button */}
          <FormButton
