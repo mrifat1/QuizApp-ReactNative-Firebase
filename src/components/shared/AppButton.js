@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { COLORS } from '../../constants/theme';
 
-const FormButton = ({
+const AppButton = ({
    labelText = '',
    handleOnPress = null,
    style,
@@ -36,4 +36,4 @@ const FormButton = ({
    );
 };
 
-export default FormButton;
+export default AppButton;

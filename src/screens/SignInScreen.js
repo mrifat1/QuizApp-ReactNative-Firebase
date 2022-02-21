@@ -4,6 +4,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 import FormButton from '../components/shared/AppButton';
 import FormInput from '../components/shared/AppInput';
 import { COLORS } from '../constants/theme';
+import { signIn } from '../utils/Auth';
 
 const SignInScreen = () => {
    const navigation = useNavigation();
@@ -12,7 +13,7 @@ const SignInScreen = () => {
 
    const handleOnSubmit = () => {
       if (email !== '' && password !== '') {
-         //Sign In
+         signIn(email, password);
       }
    };
    return (
