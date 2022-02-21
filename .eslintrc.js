@@ -8,9 +8,9 @@ module.exports = {
          node: {
             paths: ['src'],
             alias: {
-               '@app/features': './src/features',
+               '@app/constants': './src/constants',
                '@app/components': './src/components',
-               '@app/navigator': './src/navigation',
+               '@app/navigation': './src/navigation',
                '@app/screens': './src/screens',
                '@app/styles': './src/styles',
                '@app/lib': './src/lib',
@@ -41,5 +41,12 @@ module.exports = {
       radix: 0,
       'react-hooks/exhaustive-deps': 0,
       'eslint-comments/no-unlimited-disable': 0,
+      'react/self-closing-comp': [
+         'error',
+         {
+            component: true,
+            html: true,
+         },
+      ],
    },
 };
