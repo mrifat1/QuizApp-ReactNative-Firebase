@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AuthStackNav from './src/navigation/AuthStackNav';
 import auth from '@react-native-firebase/auth';
 import { HomeScreen } from './src/screens';
+import StackNavigator from './src/navigation/StackNavigator';
 const App = () => {
    const [currentUser, setcurrentUser] = useState(null);
    const [isLoading, setisLoading] = useState(true);
@@ -25,7 +26,7 @@ const App = () => {
 
    return (
       <NavigationContainer>
-         {currentUser ? <HomeScreen /> : <AuthStackNav />}
+         {currentUser ? <StackNavigator /> : <AuthStackNav />}
       </NavigationContainer>
    );
 };
