@@ -15,10 +15,11 @@ const AppInput = ({
          <TextInput
             style={{
                padding: 10,
-               borderColor: COLORS.black + '20',
+               borderColor: COLORS.black + '70',
                borderWidth: 1,
                width: '100%',
-               borderRadius: 5,
+
+               borderRadius: 7,
                marginTop: 10,
             }}
             placeholder={placeholderText}

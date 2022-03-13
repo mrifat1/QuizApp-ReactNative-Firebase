@@ -15,19 +15,24 @@ const CreateQuizScreen = () => {
       const currentQuizId = Math.floor(
          100000 + Math.random() * 9000,
       ).toString();
-      // Save to firestore
-      await CreateQuiz(currentQuizId, title, description);
 
-      // Navigate to Add Question string
-      navigation.navigate('AddQuestionScreen', {
-         currentQuizId: currentQuizId,
-         currentQuisTitle: title,
-      });
+      if (title !== '' && description !== '') {
+         // Save to firestore
+         await CreateQuiz(currentQuizId, title, description);
 
-      // Reset
+         // Navigate to Add Question string
+         navigation.navigate('AddQuestionScreen', {
+            currentQuizId: currentQuizId,
+            currentQuizTitle: title,
+         });
+         setTitle('');
+         setDescription('');
+         ToastAndroid.show('Quiz Saved', ToastAndroid.SHORT);
+      }
+
       setTitle('');
       setDescription('');
-      ToastAndroid.show('Quiz Saved', ToastAndroid.SHORT);
+      ToastAndroid.show("Quiz doesn't Saved", ToastAndroid.SHORT);
    };
    return (
       <View
@@ -50,13 +55,13 @@ const CreateQuizScreen = () => {
          </Text>
          <AppInput
             labelText="Title"
-            placeholderText="enter quiz title"
+            placeholderText="Enter quiz title"
             onChangeText={val => setTitle(val)}
             value={title}
          />
          <AppInput
             labelText="Description"
-            placeholderText="enter quiz description"
+            placeholderText="Enter quiz description"
             onChangeText={val => setDescription(val)}
             value={description}
          />
@@ -66,6 +71,19 @@ const CreateQuizScreen = () => {
             handleOnPress={handleQuizSave}
             style={undefined}
          />
+         {/* Temporary button - navigate without saving quiz*/}
+         {/* <AppButton
+            labelText="Navigate to AddQuestionScreen"
+            style={{
+               marginVertical: 20,
+            }}
+            handleOnPress={() => {
+               navigation.navigate('AddQuestionScreen', {
+                  currentQuizId: '100247',
+                  currentQuizTitle: 'demo quiz',
+               });
+            }}
+         /> */}
       </View>
    );
 };
